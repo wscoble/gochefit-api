@@ -1,0 +1,7 @@
+{
+  "profile": "scobletech",
+  "lambda_arn": "arn:aws:lambda:us-west-2:585411877007:function:api",
+  "app_name": "chefit-api",
+  "stage": "dev",
+  "memory_size": 512
+}
