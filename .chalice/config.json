@@ -1,5 +1,4 @@
 {
-  "profile": "scobletech",
   "lambda_arn": "arn:aws:lambda:us-west-2:585411877007:function:chefit-api",
   "app_name": "chefit-api",
   "lambda": {
