@@ -1,7 +1,11 @@
 {
   "profile": "scobletech",
-  "lambda_arn": "arn:aws:lambda:us-west-2:585411877007:function:api",
+  "lambda_arn": "arn:aws:lambda:us-west-2:585411877007:function:chefit-api",
   "app_name": "chefit-api",
-  "stage": "dev",
-  "memory_size": 512
+  "lambda": {
+    "MemorySize": 1024,
+    "Description": "The CHEFit web application API",
+    "Timeout": 5
+  },
+  "stage": "dev"
 }
