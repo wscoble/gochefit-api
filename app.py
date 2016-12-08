@@ -1,4 +1,5 @@
 import logging
+import boto3
 
 from chalice import Chalice
 from chalicelib import delivery
@@ -17,6 +18,18 @@ def get_delivery_days(date):
 
 @app.route('/api/ping')
 def ping():
+    if app.current_request.method == 'POST':
+        body = app.current_request.json_body
+        if body['Type'] == 'SubscriptionConfirmation':
+            topic_arn = body['TopicArn']
+            token = body['Token']
+
+            sns = boto3.client('sns')
+            sns.confirm_subscription(
+                TopicArn=topic_arn,
+                Token=token
+            )
+
     return 'Pong!'
 
 # The view function above will return {"hello": "world"}
