@@ -1,55 +1,58 @@
 import logging
 import boto3
 
-from chalice import Chalice
-from chalicelib import delivery
+from dotenv import load_dotenv, find_dotenv
+from base64 import b64decode
+
+from chalice import Chalice, BadRequestError
+from chalicelib import delivery, payment, promo, auth, tracking
 
 app = Chalice(app_name='chefit-api')
 app.log.setLevel(logging.DEBUG)
 app.debug = True
 
-@app.route('/api/track', methods=['PUT'], cors=True)
-def track():
-    return 'Ok'
 
-@app.route('/api/delivery-days/{date}', methods=['GET'], cors=True)
-def get_delivery_days(date):
-    return delivery.get_days(date)
+# Process environment variables
+de = find_dotenv()
+if de is not None:
+    load_dotenv(de)
 
-@app.route('/api/ping')
-def ping():
-    if app.current_request.method == 'POST':
-        body = app.current_request.json_body
-        if body['Type'] == 'SubscriptionConfirmation':
-            topic_arn = body['TopicArn']
-            token = body['Token']
 
-            sns = boto3.client('sns')
-            sns.confirm_subscription(
-                TopicArn=topic_arn,
-                Token=token
-            )
+###################################
+#          Tracking APIs          #
+###################################
 
-    return 'Pong!'
+@app.route('/api/track/{event_type}', methods=['PUT'], cors=True)
+def track(event_type):
+    state = tracking.process_request(app.current_request.json_body)
+    tracking.push_event(event_type, state)
+    return {'Ok'}
 
-# The view function above will return {"hello": "world"}
-# whenver you make an HTTP GET request to '/'.
-#
-# Here are a few more examples:
-#
-# @app.route('/hello/{name}')
-# def hello_name(name):
-#    # '/hello/james' -> {"hello": "james"}
-#    return {'hello': name}
-#
-# @app.route('/users', methods=['POST'])
-# def create_user():
-#     # This is the JSON body the user sent in their POST request.
-#     user_as_json = app.json_body
-#     # Suppose we had some 'db' object that we used to
-#     # read/write from our database.
-#     # user_id = db.create_user(user_as_json)
-#     return {'user_id': user_id}
-#
-# See the README documentation for more examples.
-#
+
+###################################
+#            Cart APIs            #
+###################################
+
+@app.route('/api/cart/validate-promo', methods=['PUT'], cors=True)
+def validate_promo():
+    return {'Ok'}
+
+
+@app.route('/api/cart/shipping-cost', methods=['POST'], cors=True)
+def get_shipping_cost():
+    return {'Ok'}
+
+
+###################################
+#          Payment APIs           #
+###################################
+
+@app.route('/api/pay', methods=['POST'], cors=True)
+def update_cart():
+    claims = app.current_request.claims
+    state = payment.process_request(app.current_request.json_body)
+    if state is None:
+        raise BadRequestError
+
+    result = payment.process_payment(state)
+    return {'Ok'}
