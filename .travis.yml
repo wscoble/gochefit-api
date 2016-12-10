@@ -8,11 +8,11 @@ notifications:
     on_success: always
     on_failure: always
     template:
-      - "https://github.com/%{repository_slug}"
-      - "%{build_url}"
-      - "%{commit_message}"
-      - 'Change view: %{compare_url}'
+    - https://github.com/%{repository_slug}
+    - "%{build_url}"
+    - "%{commit_message}"
+    - 'Change view: %{compare_url}'
     rooms:
       secure: hhkh5OHuT48FU8k2xAsw38Yzj/pgBap53TSrX/5KtIuXicWXPbIyJnthGoZ3IbePdKwd36H+OGOf5CixhICSXndVNd7xGvsqdMzSWde6evLQoZsrsPsqxe+A4Hc7PvJ1Pn+O2SmVnuvlMCKyLkSNqOPwIa9nXp/SjjJCak7RBdflNeDVf0SHfUBxRSgvZjCWEmVUjBo25p1hDLa+jTZ+75QVHX5i55z1ukyfHplJzeKEFxsQcw8c6tjwJQp532/LO0iGaNdetSjy27kS/HTAkSc7ZO4a6YU5N66l+Oo1iDaR8VtMhajejsRb59sQpilPIi3o73T1kBDaBxAxVerpqNkYtr4ZFjyAHWNiiqZvSbxApY2s9VZvlJNPrT4Yn+qqUyPugq2jn+stYh38YREfSZU2iI7E+oA8An694Sur1AHZtyvbbnhKcT0ad50Ux/bGW0Kk5Tj6sUDxiFw75KuGs8repWy7YmTqXwVuz7qC367xDgT+eml6UadUHfjqw5TrtIMvXBd6HlPQb0bU5F45byLns+ZP/22TjcKA0u4qXiOGUtw8nm1UI4AHJfwWLxSffAYk1Ve+nTQCItF3yT9eMnI+iUP/s+qro9RfCX9cX+F1S/g29WMcWrBxMy659t1KkwQudMaFu7ucV0TYZetJc6FZmANQjlRp+2GUm3ZYnas=
 env:
-  secure: dXELbxr31Mn4AdcBj5kY6PJLoviCiOr7Nskn/QZMf+huCU2ybxk6ml8kwUegldtBB+Fkp43OuJ8uCTM56ZzutI6xUvsNhLd0LzINYKrGiBfFv0h/9ILzHZAXdXOOd9ITwn+O0k+qjSaiz6MAMVXqIp1Z1ATskPantWbEylZDCJjtcXzZCKBk1Wj9sf63U3OXckMUlV0W1lFzYMfhbRBIz5uBeyCABdQxM2QtcHhgeECJ8GxEW+WW+alzJV5r37DccbmucSmrDZnkv+SjDfI085dWX2m7LDHr0WD/6Lu9w2B1+vzn3jtGYo/n8bP1Y+DCA/9R8mv2z77aKNnpKwA3q44Vi5fDm/7LbGQN/JpRmdEIs5oqizsm561fQWS8RxSemGZYOcWl60IrXKGDIGvFG7FgdDckAfhhiI39ar3UfwzUpdDxesM/5j3RXcvaLlHZ+q0wD00Ut8kSAXsXdEg3FgERUUWcjd9z3JBvexVIytifvv33zlr3QxZJDv81IHBe97JeKamSJIO+fwCezXqDnXuqCfkjqszv9K4CTEcXCOUvZrpLEGvn0YQukkVWRqZ1qt5BX7qzNKTFSPd367uR/bQKNSxIT8Yq3DqwWIPQ7zebRSl0h7p4s+HCrmE72AJMyDgWdgKurXZsAPQgueJo8ee9kkeTcEutDQfXnslckt8=
+  secure: C7+RVC42pmp7ZTaQIy1MpZHvelA6C/9j7sCufJWGxJnVxfc3Un5qxRLRJmFSu+jAoAILyt1t2EpzLmsihEwTJNjtLFT0MX5o38xRayPzwvS9TLkxdSkkI/p/6r1dOPDqZn+nVu1noTH4Mc9x50GDtcEYR034sU1bqYAthBxQJJ+nj6KcPHORKJdDor7vRegMw/WXLhM5w7yKwnyNwLxTHud1mP5krizyNlEOJklLH0NPLG2554zIMQgm5yNj36f7Tm2cCVv8/pVceJ6jWRwf7TxdWkV0kTxb45+lIaPcXEkLy4nC4Br9x0fotznK6S3yOePOs3I7gJw9ODRQzFZF6ZDdfaYhyIFlJnxwt3cjMrbn/I9fLvIJWvS0tw5a4ql+DURAn2ABBWmdYlJjaKGcxLP5k1zlbeFLtLYQmJ/atXNjrYcMGHkL1EHhHdArjkS1gWmf5uzeIa9FGP+gHuCdKpsWx824RyDdenBG4oMmlOVbGnXSygginOa59JyoPFO7JTS5P0AkISe5Tn4RojBez+vLIoG9kS6eNkrWXSu+cbf5I5P1Ni+BFXmQyszm4+n4mr0lSfXTgIfkSFMCe79LS1SHg1S9UV1VMAoTAwleLuDYI0wjTOqOpvSTGnYrOkABTGlmh/mi+L7y4TYJAqbdx8t2enmWFGUz7hqe49lALpk=
