@@ -3,16 +3,6 @@
   "Statement": [
     {
       "Action": [
-        "sns:ConfirmSubscription"
-      ],
-      "Resource": [
-        "*"
-      ],
-      "Effect": "Allow",
-      "Sid": "9725f4fb957f4a19aa4a189e6b3f7bc3"
-    },
-    {
-      "Action": [
         "logs:CreateLogGroup",
         "logs:CreateLogStream",
         "logs:PutLogEvents"

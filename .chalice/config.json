@@ -6,5 +6,7 @@
     "Description": "The CHEFit web application API",
     "Timeout": 5
   },
-  "stage": "dev"
+  "stage": "dev",
+  "manage_iam_role": false,
+  "iam_role_arn": "arn:aws:iam::165655401843:role/chefit-api"
 }
